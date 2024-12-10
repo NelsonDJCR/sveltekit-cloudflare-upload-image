@@ -44,11 +44,11 @@
 </script>
 
 <svelte:head>
-	<title>How to upload files to Cloudflare R2 in SvelteKit</title>
+	<title>Upload picture R2</title>
 </svelte:head>
 
 <main class="max-w-5xl py-12 mx-auto space-y-12">
-	<h1>How to upload files to Cloudflare R2 in SvelteKit</h1>
+	<h1>Upload picture R2</h1>
 
 	<div>
 		<p>
@@ -75,4 +75,5 @@
 	{#if uploadedFileUrl}
 		<img src={uploadedFileUrl} alt="Uploaded file" width="1200" height="700" />
 	{/if}
+	<p> url: {uploadedFileUrl}</p>
 </main>
