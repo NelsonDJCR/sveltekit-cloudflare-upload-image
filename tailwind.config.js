@@ -5,7 +5,7 @@ export default {
 		'./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}'
 	],
 
-	plugins: [require('flowbite/plugin')],
+	plugins: ['flowbite/plugin'],
 
 	darkMode: 'class',
 
