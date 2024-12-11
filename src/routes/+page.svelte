@@ -40,7 +40,7 @@
 			}
 			url =  `https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com/${PUBLIC_R2_BUCKET_NAME}/${objectKey}`;
 			
-			uploadedFileUrl = `${PUBLIC_R2_BUCKET_DOMAIN}/${objectKey}`;
+			uploadedFileUrl = `https://cdn.gastroflow.app/${objectKey}`;
 		}
 	};
 </script>
@@ -56,5 +56,6 @@
 	<br>
 
 	<p> fail: {uploadedFileUrl}</p>
+	<img src="{uploadedFileUrl}" alt="">
 	<p> url: {url}</p>
 </main>
