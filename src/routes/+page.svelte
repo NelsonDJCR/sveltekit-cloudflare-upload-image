@@ -3,8 +3,6 @@
 	import { Fileupload } from 'flowbite-svelte';
 
 	let uploadedFileUrl: string | undefined = undefined;	
-	const R2_ACCOUNT_ID = 'a3b8c0b4e8ad04fe9acb90b863bda25e'
-	let url: string | undefined = undefined;
 	const handleFileUpload = async (e: Event) => {
 		const target = e.target as HTMLInputElement;
 		const file = target.files?.[0];
@@ -38,8 +36,6 @@
 			if (!uploadToR2Response.ok) {
 				console.error('Failed to upload file to R2');
 			}
-			url =  `https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com/${PUBLIC_R2_BUCKET_NAME}/${objectKey}`;
-			
 			uploadedFileUrl = `https://cdn.gastroflow.app/${objectKey}`;
 		}
 	};
@@ -57,5 +53,4 @@
 
 	<p> fail: {uploadedFileUrl}</p>
 	<img src="{uploadedFileUrl}" alt="">
-	<p> url: {url}</p>
 </main>
