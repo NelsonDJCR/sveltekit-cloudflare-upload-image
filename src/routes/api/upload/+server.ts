@@ -1,3 +1,4 @@
+import { R2_ACCOUNT_ID } from '$env/static/private';
 import { PUBLIC_R2_BUCKET_NAME } from '$env/static/public';
 import { S3 } from '$lib/s3';
 import { PutObjectCommand } from '@aws-sdk/client-s3';
@@ -17,14 +18,15 @@ export const POST = async ({ request }) => {
 
     const objectKey = `${slugifyString(Date.now().toString())}-${slugifyString(fileName)}`;
 
+   
     const presignedUrl = await getSignedUrl(S3, new PutObjectCommand({
         Bucket: PUBLIC_R2_BUCKET_NAME,
         Key: objectKey,
         ContentType: fileType,
         ACL: 'public-read'
-    }), {
-        expiresIn: 60 * 5 // 5 minutes
-    });
+    })
+    ,{expiresIn: 60 * 5 }
+);
 
     return json({ presignedUrl, objectKey });
 };

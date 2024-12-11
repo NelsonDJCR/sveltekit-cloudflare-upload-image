@@ -1,9 +1,10 @@
 <script lang="ts">
-	import { PUBLIC_R2_BUCKET_DOMAIN } from '$env/static/public';
+	import { PUBLIC_R2_BUCKET_DOMAIN, PUBLIC_R2_BUCKET_NAME } from '$env/static/public';
 	import { Fileupload } from 'flowbite-svelte';
 
-	let uploadedFileUrl: string | undefined = undefined;
-
+	let uploadedFileUrl: string | undefined = undefined;	
+	const R2_ACCOUNT_ID = 'a3b8c0b4e8ad04fe9acb90b863bda25e'
+	let url: string | undefined = undefined;
 	const handleFileUpload = async (e: Event) => {
 		const target = e.target as HTMLInputElement;
 		const file = target.files?.[0];
@@ -37,7 +38,8 @@
 			if (!uploadToR2Response.ok) {
 				console.error('Failed to upload file to R2');
 			}
-
+			url =  `https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com/${PUBLIC_R2_BUCKET_NAME}/${objectKey}`;
+			
 			uploadedFileUrl = `${PUBLIC_R2_BUCKET_DOMAIN}/${objectKey}`;
 		}
 	};
@@ -51,9 +53,8 @@
 	<h1>Upload picture R2</h1>
 
 	<Fileupload id="with_helper" class="mb-2" on:change={handleFileUpload} />
+	<br>
 
-	{#if uploadedFileUrl}
-		<img src={uploadedFileUrl} alt="Uploaded file" width="1200" height="700" />
-	{/if}
-	<p> url: {uploadedFileUrl}</p>
+	<p> fail: {uploadedFileUrl}</p>
+	<p> url: {url}</p>
 </main>
