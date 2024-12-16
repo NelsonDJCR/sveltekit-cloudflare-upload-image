@@ -110,11 +110,7 @@
 
 <div class="flex justify-center items-center min-h-screen bg-gray-900 text-white">
 	<div class="bg-black p-8 rounded-xl shadow-lg w-96">
-		<input
-			type="file"
-			on:change={handleImageChange}
-			class="w-full bg-gray-800 text-white p-2 rounded-lg cursor-pointer hover:bg-gray-700 transition"
-		/>
+		<input type="file" on:change={handleImageChange} class="w-full bg-gray-800 text-white p-2 rounded-lg cursor-pointer hover:bg-gray-700 transition" />
 
 		{#if message}
 			<p class="mt-4 text-red-500 text-sm">{message}</p>
@@ -125,25 +121,15 @@
 				<p class="text-gray-300">Tamaño original: {(originalSize / 1024).toFixed(2)} KB</p>
 				<p class="text-gray-300">Tamaño comprimido: {(compressedSize / 1024).toFixed(2)} KB</p>
 				<p class="text-gray-300">Reducción: {reductionPercentage}%</p>
-				<button
-					on:click={uploadImage}
-					class="mt-4 w-full py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition"
-					>Subir a Cloudflare</button
-				>
+				<button on:click={uploadImage} class="mt-4 w-full py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition">Subir a Cloudflare</button>
 			</div>
 		{/if}
 
 		{#if uploadedImageUrl}
 			<div class="mt-6">
 				<p class="text-green-500 text-sm">Imagen subida exitosamente. URL:</p>
-				<a href={uploadedImageUrl} target="_blank" class="block text-blue-400 mt-2 truncate"
-					>{uploadedImageUrl}</a
-				>
-				<img
-					src={uploadedImageUrl}
-					alt="Imagen subida"
-					class="mt-4 w-full h-auto rounded-lg shadow-md"
-				/>
+				<a href={uploadedImageUrl} target="_blank" class="block text-blue-400 mt-2 truncate">{uploadedImageUrl}</a>
+				<img src={uploadedImageUrl} alt="Imagen subida" class="mt-4 w-full h-auto rounded-lg shadow-md" />
 			</div>
 		{/if}
 	</div>
