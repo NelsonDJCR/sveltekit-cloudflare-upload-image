@@ -1,8 +1,5 @@
 <script lang="ts">
-	import { PUBLIC_R2_BUCKET_DOMAIN, PUBLIC_R2_BUCKET_NAME } from '$env/static/public';
-	import { Fileupload } from 'flowbite-svelte';
-
-	let uploadedFileUrl: string | undefined = undefined;	
+	let uploadedFileUrl: string | undefined = undefined;
 	const handleFileUpload = async (e: Event) => {
 		const target = e.target as HTMLInputElement;
 		const file = target.files?.[0];
@@ -44,13 +41,5 @@
 <svelte:head>
 	<title>Upload picture R2</title>
 </svelte:head>
-
-<main class="max-w-5xl py-12 mx-auto space-y-12">
-	<h1>Upload picture R2</h1>
-
-	<Fileupload id="with_helper" class="mb-2" on:change={handleFileUpload} />
-	<br>
-
-	<p> fail: {uploadedFileUrl}</p>
-	<img src="{uploadedFileUrl}" alt="">
-</main>
+<input type="file" name="" id="with_helper" class="mb-2" on:change={handleFileUpload} />
+<img src={uploadedFileUrl} alt="" />
