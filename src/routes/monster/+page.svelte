@@ -1,5 +1,4 @@
 <script lang="ts">
-	let imageFile: File | null = null;
 	let webpBlob: Blob | null = null;
 	let originalSize: number = 0;
 	let compressedSize: number = 0;
